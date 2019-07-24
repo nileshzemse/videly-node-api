@@ -1,0 +1,32 @@
+<%- include('includes/start.ejs')%>
+
+</head>
+  <div class="d-flex" id="wrapper">
+
+    <%- include('includes/sidebar.ejs')%>
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+       <%- include('includes/navbar.ejs')%>
+
+      <div class="container-fluid">
+        <h1 class="mt-4"><%=pageTitle%></h1>
+        <p>The starting state of the menu will appear collapsed on smaller screens.</p>
+        <p>Lorem Ispum Lorem Ispum Lorem Ispum</p>
+
+        <% if(genres.length > 0) { 
+            for(let genre of genres) { %>
+              <p><%=genre.name%></p>
+        <%  }
+        } else { %>
+          <p>No genres exists</p>
+        <% } %>  
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+<%- include('includes/end.ejs')%>

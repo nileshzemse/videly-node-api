@@ -6,6 +6,8 @@ const rentals = require('../routes/rentals');
 const users = require('../routes/users');
 const auth = require('../routes/auth');
 const error = require('../middleware/errors');
+const indexController = require('../controllers/indexController');
+const errorController = require('../controllers/errorController');
 
 module.exports = function (app) {
 
@@ -19,9 +21,9 @@ module.exports = function (app) {
     app.use('/api/users/', users);
     app.use('/api/auth/', auth);
 
-    app.get('/', (req, res) => {
-        res.send("<b>Hello World!</b>");
-    });
+    app.get('/dashboard', indexController.dashboard);
+    app.get('/', indexController.index);
+    app.use('/', errorController.pageNotFound);
 
     app.use(error);
 
